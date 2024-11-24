@@ -7,9 +7,10 @@ document.addEventListener("DOMContentLoaded", displayDessertList);
 
 async function displayDessertList(): Promise<void> {
   try {
-    const menuContainer = document.querySelector(".menu") as HTMLUListElement;
-
-    if (!menuContainer) return;
+    const menuSection = document.querySelector(".menu__wrap");
+    const menuWrap = document.createElement("ul");
+    menuWrap.classList.add("menu");
+    menuSection?.appendChild(menuWrap);
 
     const desserts = await products;
 
@@ -20,13 +21,9 @@ async function displayDessertList(): Promise<void> {
       return createMenuItem(dessert);
     });
 
-    // const menuItems: HTMLLIElement[] = dessertList.map((dessert) =>
-    //   createMenuItem(dessert)
-    // );
+    menuItems.forEach((item) => menuWrap.appendChild(item));
 
-    menuItems.forEach((item) => menuContainer.appendChild(item));
-
-    initButtonListeners(menuContainer);
+    initButtonListeners(menuWrap);
   } catch (err) {
     console.error(err);
   }

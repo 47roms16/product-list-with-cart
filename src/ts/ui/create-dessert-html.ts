@@ -1,25 +1,25 @@
 import { Dessert } from "./types/dessert-structure";
 
-export default function createMenuItem(item: Dessert): HTMLLIElement {
+export default function generateMenuItem(item: Dessert): HTMLLIElement {
   // create <li> - outer element
   const liItem: HTMLLIElement = document.createElement("li");
   liItem.classList.add("menu-item");
 
   liItem.appendChild(
-    createImageElements(
+    generateImgElements(
       item.image.desktop,
       item.image.tablet,
       item.image.mobile,
       item.name
     )
   );
-  liItem.appendChild(createAddToCartBtn(item.productId));
-  liItem.appendChild(createItemDetails(item.category, item.name, item.price));
+  liItem.appendChild(generateAddToCartBtn(item.productId));
+  liItem.appendChild(generateItemDetails(item.category, item.name, item.price));
 
   return liItem;
 }
 
-function createImageElements(
+function generateImgElements(
   desktopImg: string,
   tabletImg: string,
   mobileImg: string,
@@ -49,7 +49,7 @@ function createImageElements(
   return pictureElem;
 }
 
-function createAddToCartBtn(productId: number): HTMLButtonElement {
+function generateAddToCartBtn(productId: number): HTMLButtonElement {
   const addToCartBtn: HTMLButtonElement = document.createElement("button");
   addToCartBtn.classList.add("menu-btn__add", "js-add-to-cart");
   addToCartBtn.dataset.productId = productId.toString();
@@ -78,7 +78,7 @@ function createAddToCartBtn(productId: number): HTMLButtonElement {
   return addToCartBtn;
 }
 
-function createItemDetails(
+function generateItemDetails(
   category: string,
   name: string,
   price: number
