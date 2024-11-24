@@ -1,0 +1,131 @@
+@font-face {
+  font-family: "Red Hat Text Bold";
+  src: url("../assets/fonts/static/RedHatText-Bold.woff2") format("woff2"),
+    url("../assets/fonts/static/RedHatText-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Red Hat Text SemiBold";
+  src: url("../assets/fonts/static/RedHatText-SemiBold.woff2") format("woff2"),
+    url("../assets/fonts/static/RedHatText-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("../assets/fonts/static/RedHatText-Regular.woff2") format("woff2"),
+    url("../assets/fonts/static/RedHatText-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  /* | FONTS | */
+  --font-primary: "Red Hat Text", sans-serif;
+  --font-primary-bold: "Red Hat Text Bold", sans-serif;
+  --font-primary-semibold: "Red Hat Text SemiBold", sans-serif;
+
+  /* | COLOR | */
+
+  --clr-primary: hsl(14, 86%, 42%);
+  --clr-secondary: hsl(159, 69%, 38%);
+  --clr-rose-50: hsl(24, 45%, 98%);
+  --clr-rose-100: hsl(13, 31%, 94%);
+  --clr-rose-300: hsl(14, 25%, 72%);
+  --clr-rose-400: hsl(7, 20%, 60%);
+  --clr-rose-500: hsl(12, 20%, 44%);
+  --clr-rose-900: hsl(14, 65%, 9%);
+
+  /* Text colors*/
+  --text-clr-primary: hsl(14, 86%, 42%);
+  --text-clr-secondary: hsl(159, 69%, 38%);
+  --text-clr-rose-50: hsl(24, 45%, 98%);
+  --text-clr-rose-100: hsl(13, 31%, 94%);
+  --text-clr-rose-300: hsl(14, 25%, 72%);
+  --text-clr-rose-400: hsl(7, 20%, 60%);
+  --text-clr-rose-500: hsl(12, 20%, 44%);
+  --text-clr-rose-900: hsl(14, 65%, 9%);
+
+  /* Button colors*/
+  --btn-clr-primary: hsl(14, 86%, 42%);
+  --btn-clr-secondary: hsl(159, 69%, 38%);
+  --btn-clr-rose-50: hsl(20, 50%, 98%);
+  --btn-clr-rose-100: hsl(13, 31%, 94%);
+  --btn-clr-rose-300: hsl(14, 25%, 72%);
+  --btn-clr-rose-400: hsl(7, 20%, 60%);
+  --btn-clr-rose-500: hsl(12, 20%, 44%);
+  --btn-clr-rose-900: hsl(14, 65%, 9%);
+
+  /* | SIZES | */
+
+  --size-1: 0.25rem; /* 4px */
+  --size-2: 0.5rem; /* 8px */
+  --size-3: 0.75rem; /* 12px */
+  --size-4: 1rem; /* 16px */
+  --size-5: 1.25rem; /* 20px */
+  --size-6: 1.5rem; /* 24px */
+  --size-7: 1.75rem; /* 28px  */
+  --size-8: 2rem; /* 32px */
+  --size-10: 2.5rem; /* 40px */
+  --size-12: 3rem; /* 48px */
+  --size-14: 3.5rem; /* 56px */
+  --size-16: 4rem; /* 64px */
+  --size-20: 5rem; /* 80px */
+  --size-24: 6rem; /* 96px */
+  --size-28: 7rem; /* 112px */
+  --size-32: 8rem; /* 128px */
+  --size-34: 8.5rem;
+  --size-40: 10rem; /* 160px */
+  --size-48: 12rem; /* 192px */
+  --size-64: 16rem; /* 256px */
+
+  --text-sm: 0.875rem; /* 14px */
+}
+
+/* Utils */
+.max-container {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding: 0 var(--size-34) 0 var(--size-28);
+}
+
+/* || GENERAL || */
+
+html {
+  background-color: var(--clr-rose-100);
+}
+
+h1 {
+  font-family: "Red Hat Text Bold";
+  font-size: var(--size-10);
+  color: var(--text-clr-rose-900);
+  margin: 0 0 var(--size-8) 0;
+}
+
+/* Breakpoints */
+
+@media (max-width: 1536px) {
+}
+
+@media (max-width: 1280px) {
+  .max-container {
+    padding: var(--size-16);
+  }
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+  .max-container {
+    padding: var(--size-8);
+  }
+}
+
+@media (max-width: 640px) {
+}
