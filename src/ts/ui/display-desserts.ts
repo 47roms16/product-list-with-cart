@@ -1,7 +1,6 @@
 import { initButtonListeners } from "./components/add-to-cart";
 import createMenuItem from "./create-dessert-html";
 import { products } from "../products";
-import { Dessert } from "./types/dessert-structure";
 
 document.addEventListener("DOMContentLoaded", displayDessertList);
 

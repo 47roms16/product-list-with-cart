@@ -15,8 +15,10 @@ export function initButtonListeners(container: HTMLUListElement): void {
 }
 
 function initAddToCartBtn(target: HTMLButtonElement) {
-  const addToCartBtn = target.closest("js-add-to-cart") as HTMLButtonElement;
-
+  const addToCartBtn = target.closest(
+    ".menu-btn__add-to-cart"
+  ) as HTMLButtonElement;
+  console.log(addToCartBtn);
   if (addToCartBtn) {
     handleAddToCartClick(addToCartBtn);
     return;

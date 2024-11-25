@@ -3,22 +3,21 @@ let quantity = 0;
 export default function createQuantityControls(): HTMLDivElement {
   const controlsDiv: HTMLDivElement = document.createElement("div");
 
-  controlsDiv.className =
-    "item-quantity__controls item-quantity__controls--active";
+  controlsDiv.classList.add("item-quantity__controls");
 
   const quantityText: HTMLParagraphElement = document.createElement("p");
   quantityText.classList.add("item-quantity__quantity");
 
   controlsDiv.appendChild(
     createButton(
-      "item-quantity__decrement js-quantity-decrement",
+      "item-quantity__decrement",
       "src/assets/images/icons.svg#icon-decrement-quantity"
     )
   );
   controlsDiv.appendChild(createQuantityElem());
   controlsDiv.appendChild(
     createButton(
-      "item-quantity__increment js-quantity-increment",
+      "item-quantity__increment",
       "src/assets/images/icons.svg#icon-increment-quantity"
     )
   );

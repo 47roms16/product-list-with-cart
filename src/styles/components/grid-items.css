@@ -17,7 +17,7 @@
 
 /* Add to cart button */
 
-.menu-btn__add {
+.menu-btn__add-to-cart {
   position: relative;
   display: flex;
   margin: -1.5rem auto;
@@ -33,11 +33,11 @@
   z-index: 1;
 }
 
-.menu-btn__add:not(.active):hover {
+.menu-btn__add-to-cart:not(.active):hover {
   color: var(--btn-clr-primary);
 }
 
-.menu-btn__add:not(.active):active {
+.menu-btn__add-to-cart:not(.active):active {
   background-color: var(--btn-clr-rose-300);
 }
 

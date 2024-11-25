@@ -51,7 +51,7 @@ function generateImgElements(
 
 function generateAddToCartBtn(productId: number): HTMLButtonElement {
   const addToCartBtn: HTMLButtonElement = document.createElement("button");
-  addToCartBtn.classList.add("menu-btn__add", "js-add-to-cart");
+  addToCartBtn.classList.add("menu-btn__add-to-cart");
   addToCartBtn.dataset.productId = productId.toString();
   addToCartBtn.setAttribute("aria-label", "Add item to cart");
 
