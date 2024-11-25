@@ -1,6 +1,3 @@
-import createQuantityControls from "./create-controls";
-
-import { initControlsBtn } from "./control-quantity";
 import { handleAddToCartClick, updateCartButton } from "./cart";
 
 export function initButtonListeners(container: HTMLUListElement): void {
