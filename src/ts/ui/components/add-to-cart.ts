@@ -1,32 +1,30 @@
 import createQuantityControls from "./create-controls";
 
 import { initControlsBtn } from "./control-quantity";
+import { handleAddToCartClick, updateCartButton } from "./cart";
 
 export function initButtonListeners(container: HTMLUListElement): void {
   container.addEventListener("click", (event) => {
     const target = event.target as HTMLButtonElement;
 
-    if (!(target instanceof HTMLButtonElement)) return;
+    const addToCartBtn: HTMLButtonElement | null = target.closest(
+      ".menu-btn__add-to-cart"
+    );
 
-    initAddToCartBtn(target);
+    if (!addToCartBtn) return;
 
-    initControlsBtn(target);
+    const productId: string | undefined = addToCartBtn.dataset.productId;
+
+    if (!productId) {
+      console.error("Product ID is missing.");
+      return;
+    }
+
+    const productIdNum = parseInt(productId);
+
+    if (addToCartBtn) {
+      handleAddToCartClick(productIdNum);
+      updateCartButton(addToCartBtn);
+    }
   });
-}
-
-function initAddToCartBtn(target: HTMLButtonElement) {
-  const addToCartBtn = target.closest(
-    ".menu-btn__add-to-cart"
-  ) as HTMLButtonElement;
-  console.log(addToCartBtn);
-  if (addToCartBtn) {
-    handleAddToCartClick(addToCartBtn);
-    return;
-  }
-}
-
-function handleAddToCartClick(cartBtn: HTMLButtonElement): void {
-  const newBtn = createQuantityControls();
-
-  cartBtn.replaceWith(newBtn);
 }

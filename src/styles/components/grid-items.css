@@ -48,7 +48,7 @@
 
 /* Active state add to cart button */
 
-.item-quantity__controls--active {
+.item-quantity__controls {
   position: relative;
   display: flex;
   width: 10.125rem;

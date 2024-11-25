@@ -10,6 +10,6 @@ export interface Dessert {
   category: string;
   price: number;
   image: Image;
-  quantity?: number;
   productId: number;
+  quantity?: number;
 }
