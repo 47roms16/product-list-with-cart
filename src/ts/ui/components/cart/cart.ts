@@ -11,14 +11,14 @@ export function handleAddToCartClick(productId: number) {
     }
   });
 
-  console.log(cart);
-
   if (matchingProduct) {
     matchingProduct.quantity += 1;
   } else {
     cart.push({ productId, quantity: 1 });
   }
 }
+
+// TODO: create decrement and increment buttons functionality for each data
 
 export function updateCartButton(cartBtn: HTMLButtonElement) {
   const newBtn = createQuantityControls();

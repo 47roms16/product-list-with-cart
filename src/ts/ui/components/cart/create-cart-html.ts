@@ -1,4 +1,4 @@
-import { Dessert } from "../types/dessert-structure";
+import { Dessert } from "../../types/dessert-structure";
 
 export default function generateCartHTML(item: Dessert): HTMLElement {
   const aside = document.createElement("aside");

@@ -1,4 +1,4 @@
-import { initButtonListeners } from "./components/add-to-cart";
+import { initButtonListeners } from "./components/cart/add-to-cart";
 import createMenuItem from "./create-dessert-html";
 import { products } from "../products";
 
