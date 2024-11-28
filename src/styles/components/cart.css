@@ -6,7 +6,7 @@
   border-radius: var(--size-2);
 }
 
-.cart__title {
+.cart__heading {
   margin-bottom: var(--size-2);
   font-family: var(--font-primary-bold);
   font-size: var(--size-6);

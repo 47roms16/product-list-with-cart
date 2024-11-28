@@ -1,6 +1,11 @@
 import createQuantityControls from "./create-controls";
 
-const cart: cartItem[] = [];
+export const cart: cartItem[] = [
+  { productId: 2, quantity: 4 },
+  { productId: 7, quantity: 12 },
+  { productId: 4, quantity: 3 },
+  { productId: 1, quantity: 7 },
+];
 
 export function handleAddToCartClick(productId: number) {
   let matchingProduct: cartItem | undefined;
@@ -18,11 +23,19 @@ export function handleAddToCartClick(productId: number) {
   }
 }
 
-// TODO: create decrement and increment buttons functionality for each data
-
 export function updateCartButton(cartBtn: HTMLButtonElement) {
   const newBtn = createQuantityControls();
   cartBtn.replaceWith(newBtn);
+}
+
+export function updateCartQuantity() {
+  let cartQuantity: number = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+
+  return cartQuantity;
 }
 
 interface cartItem {

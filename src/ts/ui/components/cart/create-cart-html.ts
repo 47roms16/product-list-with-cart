@@ -1,76 +1,52 @@
 import { Dessert } from "../../types/dessert-structure";
 
-export default function generateCartHTML(item: Dessert): HTMLElement {
-  const aside = document.createElement("aside");
-  aside.classList.add("cart");
-
-  const cartHeading = document.createElement("h2");
-  cartHeading.classList.add("cart__heading");
-  cartHeading.textContent = "Your Cart (0)";
-
-  const asideElem = generateCartList();
-  const removeBtn = createRemoveBtn();
-
-  aside.appendChild(cartHeading);
-  aside.appendChild(asideElem);
-  aside.appendChild(removeBtn);
-
-  return aside;
-}
-
-function generateCartList(): HTMLUListElement {
-  const cartUlist = document.createElement("ul");
-  cartUlist.classList.add("cart__items");
-
-  const cartItem = generateItem();
-  cartUlist.appendChild(cartItem);
-
-  return cartUlist;
-}
-
-function generateItem(): HTMLLIElement {
+export function generateItem(cartProduct: Dessert): HTMLLIElement {
   const cartItem = document.createElement("li");
   cartItem.classList.add("cart-item");
+  const removeBtn = createRemoveBtn();
 
-  const cartItemDetails = generateDetails();
+  const cartItemDetails = generateDetails(cartProduct);
   cartItem.appendChild(cartItemDetails);
+  cartItem.appendChild(removeBtn);
 
   return cartItem;
 }
 
-function generateDetails(): HTMLDivElement {
+function generateDetails(cartItem: Dessert): HTMLDivElement {
   const detailsDiv = document.createElement("div");
   detailsDiv.classList.add("cart-item__details");
 
   const itemName = document.createElement("h2");
   itemName.classList.add("cart-item__name");
+  itemName.textContent = cartItem.name;
   detailsDiv.appendChild(itemName);
 
-  const itemPricingDetails = generatePricingDetails();
+  const itemPricingDetails = generatePricingDetails(cartItem);
   detailsDiv.appendChild(itemPricingDetails);
 
   return detailsDiv;
 }
 
-function generatePricingDetails(): HTMLDivElement {
+function generatePricingDetails(cartItem: Dessert): HTMLDivElement {
   const itemSummaryDiv = document.createElement("div");
 
-  const itemQuantity = createSpan("cart-item__quantity");
-  const itemPrice = createSpan("cart-item__price");
-  const itemTotal = createSpan("cart-item__total");
+  const quantity = cartItem.quantity;
+  const price = cartItem.price;
+  const total = calculateTotal(quantity, price);
+
+  const formattedQuantity = `${quantity.toString()}x`;
+  const formattedPrice = `@ $${price.toFixed(2)}`;
+  const formattedTotal = `$${total.toFixed(2).toString()}`;
+
+  const itemQuantity = createSpan("cart-item__quantity", formattedQuantity);
+  const itemPrice = createSpan("cart-item__price", formattedPrice);
+  const itemTotal = createSpan("cart-item__total", formattedTotal);
 
   itemSummaryDiv.appendChild(itemQuantity);
   itemSummaryDiv.appendChild(itemPrice);
   itemSummaryDiv.appendChild(itemTotal);
 
   return itemSummaryDiv;
-}
-
-function createSpan(className: string): HTMLSpanElement {
-  const span = document.createElement("span");
-  span.classList.add(className);
-
-  return span;
 }
 
 function createRemoveBtn(): HTMLButtonElement {
@@ -81,9 +57,10 @@ function createRemoveBtn(): HTMLButtonElement {
     "http://www.w3.org/2000/svg",
     "svg"
   );
+  removeIcon.classList.add("cart-btn__icon");
 
   const removeIconSrc = document.createElementNS(
-    " http://www.w3.org/2000/svg",
+    "http://www.w3.org/2000/svg",
     "use"
   );
 
@@ -91,9 +68,20 @@ function createRemoveBtn(): HTMLButtonElement {
     "href",
     "src/assets/images/icons.svg#icon-remove-item"
   );
-  removeIcon.classList.add("cart-btn__icon");
-
   removeIcon.appendChild(removeIconSrc);
 
+  removeBtn.appendChild(removeIcon);
   return removeBtn;
+}
+
+function createSpan(className: string, text: string): HTMLSpanElement {
+  const span = document.createElement("span");
+  span.classList.add(className);
+  span.textContent = text;
+
+  return span;
+}
+
+function calculateTotal(quantity: number | undefined | null, price: number) {
+  return (quantity ?? 0) * price;
 }

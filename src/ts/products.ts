@@ -5,7 +5,7 @@ export const products = assignProductId();
 async function assignProductId() {
   const dessertData = await fetchData();
 
-  if (!Array.isArray(dessertData) || dessertData.length === 0) return;
+  if (!Array.isArray(dessertData) || !dessertData) return;
 
   const dataWithId = dessertData.map((dessert, index) => {
     return { ...dessert, productId: index + 1 };
@@ -26,6 +26,6 @@ export interface Dessert {
   category: string;
   price: number;
   image: Image;
-  quantity?: number;
   productId: number;
+  quantity?: number;
 }

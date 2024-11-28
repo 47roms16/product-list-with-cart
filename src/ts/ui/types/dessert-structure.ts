@@ -11,5 +11,5 @@ export interface Dessert {
   price: number;
   image: Image;
   productId: number;
-  quantity?: number;
+  quantity: number;
 }
