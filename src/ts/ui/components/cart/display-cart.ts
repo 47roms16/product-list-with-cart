@@ -1,21 +1,33 @@
 import { products } from "../../../products";
 import { Dessert } from "../../types/dessert-structure";
-import { cart, updateCartQuantity } from "./cart";
+import { cart, cartItem, updateCartQuantity } from "./cart";
 import { generateItem } from "./create-cart-html";
 
 export async function displayCartItems() {
   const desserts = await products;
+  const cartItems = cart;
 
   if (!desserts) return;
 
+  const asideElem = generateAsideElem();
   const cartUlistElem = generateCartUlist();
 
-  cart.forEach((item) => {
+  displayMatchingProducts(cartItems, desserts, cartUlistElem);
+
+  asideElem.appendChild(cartUlistElem); // add each cart items and render each
+}
+
+function displayMatchingProducts(
+  cartProducts: cartItem[],
+  products: Dessert[],
+  ulistContainer: HTMLUListElement
+) {
+  cartProducts.forEach((item) => {
+    let matchingProduct;
     const cartItemId = item.productId;
     const itemQuantity = item.quantity;
-    let matchingProduct;
 
-    desserts.forEach((product) => {
+    products.forEach((product) => {
       if (cartItemId === product.productId) {
         matchingProduct = product;
         matchingProduct.quantity = itemQuantity;
@@ -23,14 +35,10 @@ export async function displayCartItems() {
     });
 
     if (matchingProduct) {
-      const cartItem = generateItem(matchingProduct);
-      cartUlistElem.appendChild(cartItem);
+      const cartLiItem = generateItem(matchingProduct);
+      ulistContainer.appendChild(cartLiItem);
     }
   });
-
-  const asideElem = generateAsideElem();
-
-  asideElem.appendChild(cartUlistElem);
 }
 
 // generate and add Aside element to main element
@@ -66,3 +74,5 @@ function generateCartUlist(): HTMLUListElement {
 
   return cartUlist;
 }
+
+function generateConfirmButton() {}
