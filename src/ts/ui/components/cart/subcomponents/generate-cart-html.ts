@@ -1,5 +1,5 @@
-import { Dessert } from "../../types/dessert-structure";
-
+import { Dessert } from "../../../types/dessert-structure";
+// TODO: Create confirm order button
 export function generateItem(cartProduct: Dessert): HTMLLIElement {
   const cartItem = document.createElement("li");
   cartItem.classList.add("cart-item");
@@ -16,7 +16,7 @@ function generateDetails(cartItem: Dessert): HTMLDivElement {
   const detailsDiv = document.createElement("div");
   detailsDiv.classList.add("cart-item__details");
 
-  const itemName = document.createElement("h2");
+  const itemName = document.createElement("h3");
   itemName.classList.add("cart-item__name");
   itemName.textContent = cartItem.name;
   detailsDiv.appendChild(itemName);
