@@ -1,4 +1,5 @@
 import { handleAddToCartClick, updateCartButton } from "./cart";
+import { updateCartUi } from "./update-cart-ui";
 
 export function initButtonListeners(container: HTMLUListElement): void {
   container.addEventListener("click", (event) => {
@@ -22,6 +23,7 @@ export function initButtonListeners(container: HTMLUListElement): void {
     if (addToCartBtn) {
       handleAddToCartClick(productIdNum);
       updateCartButton(addToCartBtn);
+      updateCartUi();
     }
   });
 }
