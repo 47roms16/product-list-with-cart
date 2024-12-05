@@ -1,4 +1,4 @@
-import { Dessert } from "./types/dessert-structure";
+import { Dessert } from "../../types/dessert-structure";
 
 export default function generateMenuItem(item: Dessert): HTMLLIElement {
   // create <li> - outer element
