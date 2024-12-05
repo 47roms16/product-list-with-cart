@@ -1,13 +1,13 @@
-import { initButtonListeners } from "./components/cart/add-to-cart";
-import createMenuItem from "./create-dessert-html";
-import { products } from "../products";
-import { displayCartItems } from "./components/cart/display-cart";
+import { initButtonListeners } from "../cart/add-to-cart";
+import createMenuItem from "./generate-dessert-html";
+import { products } from "../../../products";
+import { updateCartUi } from "../cart/update-cart-ui";
 
 document.addEventListener("DOMContentLoaded", displayDessertList);
 
 async function displayDessertList(): Promise<void> {
   try {
-    displayCartItems();
+    updateCartUi();
     const menuSection = document.querySelector(".menu__wrap");
     const menuWrap = document.createElement("ul");
 
@@ -29,9 +29,4 @@ async function displayDessertList(): Promise<void> {
   } catch (err) {
     console.error(err);
   }
-}
-
-function updateCartUi() {
-  // iterate through array of dessert added to cart
-  // update total price and quantity
 }
