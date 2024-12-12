@@ -10,7 +10,8 @@ export default function generateMenuItem(item: Dessert): HTMLLIElement {
       item.image.desktop,
       item.image.tablet,
       item.image.mobile,
-      item.name
+      item.name,
+      item.productId
     )
   );
   liItem.appendChild(generateAddToCartBtn(item.productId));
@@ -23,9 +24,12 @@ function generateImgElements(
   desktopImg: string,
   tabletImg: string,
   mobileImg: string,
-  itemName: string
+  itemName: string,
+  productId: number
 ): HTMLPictureElement {
   const pictureElem: HTMLPictureElement = document.createElement("picture");
+  pictureElem.classList.add("menu-item__picture");
+  pictureElem.dataset.productId = productId.toString();
 
   // desktop screen size image source
   const sourceDesktop: HTMLSourceElement = document.createElement("source");
