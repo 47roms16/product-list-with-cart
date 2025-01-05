@@ -1,0 +1,13 @@
+.cart__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart__message {
+  margin-top: var(--size-3);
+  font-family: var(--font-primary-semibold);
+  font-size: var(--text-sm);
+  color: var(--text-clr-rose-500);
+  text-align: center;
+}

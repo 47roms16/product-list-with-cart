@@ -1,0 +1,22 @@
+.menu-item__details {
+  margin-top: var(--size-10);
+}
+
+.menu-item__category {
+  margin-bottom: var(--size-2);
+  font-family: var(--font-primary);
+  line-height: 1;
+  color: var(--text-clr-rose-500);
+}
+
+.menu-item__name {
+  margin-bottom: var(--size-2);
+  font-family: var(--font-primary-semibold);
+  line-height: 1;
+  color: var(--btn-clr-rose-900);
+}
+
+.menu-item__price {
+  font-family: var(--font-primary-semibold);
+  color: var(--text-clr-primary);
+}

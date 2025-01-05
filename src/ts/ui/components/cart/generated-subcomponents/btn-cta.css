@@ -1,0 +1,39 @@
+/* CTA (Confirm Order) */
+
+.cart-cta__btn {
+  width: 100%;
+  padding-block: var(--size-4);
+  align-self: center;
+  font-family: var(--font-primary-semibold);
+  color: white;
+  background-color: var(--clr-primary);
+  border-radius: 100vw;
+}
+
+.cart-cta__btn:hover {
+  background-color: hsl(19, 65%, 30%);
+}
+
+.cart-cta__btn:active {
+  background-color: var(--btn-clr-rose-500);
+}
+
+/* || Breakpoints || */
+
+/* @media (max-width: 1536px) {
+} */
+
+/* @media (max-width: 1280px) {
+} */
+
+@media (max-width: 1024px) {
+  .cart-cta__btn {
+    max-width: 50%;
+  }
+}
+
+/* @media (max-width: 768px) {
+} */
+
+/* @media (max-width: 640px) {
+} */

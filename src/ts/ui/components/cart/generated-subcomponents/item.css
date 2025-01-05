@@ -1,0 +1,12 @@
+.cart-item {
+  display: flex;
+  padding-block: var(--size-4);
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--btn-clr-rose-300);
+}
+
+.cart-item:last-child {
+  padding-bottom: var(--size-6);
+  border-bottom: none;
+}

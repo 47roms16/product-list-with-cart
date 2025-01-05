@@ -4,13 +4,7 @@
   gap: var(--size-8);
 }
 
-/* products that are added to cart */
-.product-added {
-  border-radius: var(--size-2);
-  outline: 2px solid var(--clr-primary);
-}
-
-/* Breakpoints */
+/* || BREAK POINTS || */
 
 /* @media (max-width: 1536px) {
 } */

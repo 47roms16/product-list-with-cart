@@ -1,0 +1,45 @@
+/* grid menu */
+
+.menu__wrap {
+  max-width: 50rem;
+  flex: 3;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
+  gap: 2.375rem var(--size-6);
+}
+
+/* products that are added to cart */
+.product-added {
+  border-radius: var(--size-2);
+  outline: 2px solid var(--clr-primary);
+}
+
+/* Breakpoints */
+
+/* @media (max-width: 1536px) {
+} */
+
+@media (max-width: 1280px) {
+  .menu {
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu__wrap {
+    margin-bottom: var(--size-8);
+  }
+}
+
+/* @media (max-width: 768px) {
+} */
+
+@media (max-width: 640px) {
+  .menu {
+    grid-template-columns: 1fr;
+    gap: var(--size-7);
+  }
+}

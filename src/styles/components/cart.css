@@ -15,92 +15,13 @@
   color: var(--text-clr-primary);
 }
 
-.cart__empty {
+.cart__wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
-
-.cart__empty-illustration {
-  width: var(--size-32);
-}
-
-.cart__message {
-  margin-top: var(--size-3);
-  font-family: var(--font-primary-semibold);
-  font-size: var(--text-sm);
-  color: var(--text-clr-rose-500);
-}
-
-/* Non-empty cart styles */
-
-.cart__items {
-  margin-bottom: var(--size-5);
-}
-
-/* TODO: Border bottom, padding & spacing fix */
-
-.cart-item {
-  display: flex;
-  padding-block: var(--size-4);
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--btn-clr-rose-300);
-}
-
-.cart-item:last-child {
-  padding-bottom: var(--size-6);
-  border-bottom: none;
-}
-
-.cart-item__name {
-  margin-bottom: var(--size-2);
-  font-family: var(--font-primary-semibold);
-  font-size: var(--text-sm);
-  color: var(--text-clr-rose-900);
-}
-
-.cart-item__quantity {
-  margin-right: var(--size-4);
-  font-family: var(--font-primary-semibold);
-  font-size: var(--text-sm);
-  color: var(--text-clr-primary);
-}
-
-.cart-item__price {
-  margin-right: var(--size-2);
-  font-family: var(--font-primary);
-  font-size: var(--text-sm);
-  color: var(--text-clr-rose-400);
-}
-
-.cart-item__total {
-  font-family: var(--font-primary-semibold);
-  font-size: var(--text-sm);
-  color: var(--text-clr-rose-500);
-}
+/* details */
 
 /* Cart remove Button */
-
-.cart-btn__remove:hover .cart-btn__icon {
-  border-color: var(--btn-clr-rose-500);
-  fill: var(--btn-clr-rose-500);
-}
-
-.cart-btn__remove:active .cart-btn__icon {
-  border-color: var(--btn-clr-rose-400);
-  fill: var(--btn-clr-rose-400);
-}
-
-.cart-btn__icon {
-  box-sizing: content-box;
-  width: 0.625rem;
-  height: 0.625rem;
-  padding: 0.12rem;
-  border: 2px solid var(--btn-clr-rose-400);
-  border-radius: 999px;
-  fill: var(--btn-clr-rose-400);
-}
 
 /* Cart Summary */
 
@@ -143,30 +64,6 @@
   font-family: var(--font-primary-semibold);
 }
 
-/* CTA (Confirm Order) */
-
-.cart__cta-wrap {
-  display: flex;
-  justify-content: center;
-}
-
-.cart-cta__btn {
-  width: 100%;
-  padding-block: var(--size-4);
-  font-family: var(--font-primary-semibold);
-  color: white;
-  background-color: var(--clr-primary);
-  border-radius: 100vw;
-}
-
-.cart-cta__btn:hover {
-  background-color: hsl(19, 65%, 30%);
-}
-
-.cart-cta__btn:active {
-  background-color: var(--btn-clr-rose-500);
-}
-
 /* || Breakpoints || */
 
 /* @media (max-width: 1536px) {
@@ -175,17 +72,11 @@
 /* @media (max-width: 1280px) {
 } */
 
-@media (max-width: 1024px) {
-  .cart-cta__btn {
-    max-width: 50%;
-  }
-}
+/* @media (max-width: 1024px) {
+} */
 
 /* @media (max-width: 768px) {
 } */
 
-@media (max-width: 640px) {
-  .cart {
-    padding: var(--size-16) 0;
-  }
-}
+/* @media (max-width: 640px) {
+} */

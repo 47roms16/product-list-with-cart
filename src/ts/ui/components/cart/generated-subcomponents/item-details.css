@@ -1,0 +1,30 @@
+.cart__items {
+  margin-bottom: var(--size-5);
+}
+
+.cart-item__name {
+  margin-bottom: var(--size-2);
+  font-family: var(--font-primary-semibold);
+  font-size: var(--text-sm);
+  color: var(--text-clr-rose-900);
+}
+
+.cart-item__quantity {
+  margin-right: var(--size-4);
+  font-family: var(--font-primary-semibold);
+  font-size: var(--text-sm);
+  color: var(--text-clr-primary);
+}
+
+.cart-item__price {
+  margin-right: var(--size-2);
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  color: var(--text-clr-rose-400);
+}
+
+.cart-item__total {
+  font-family: var(--font-primary-semibold);
+  font-size: var(--text-sm);
+  color: var(--text-clr-rose-500);
+}
