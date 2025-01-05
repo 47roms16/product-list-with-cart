@@ -1,4 +1,4 @@
-interface Image {
+export interface Image {
   thumbnail: string;
   mobile: string;
   tablet: string;
@@ -11,5 +11,9 @@ export interface Dessert {
   price: number;
   image: Image;
   productId: number;
+  quantity: number;
+}
+
+export interface DessertCartItem extends Dessert {
   quantity: number;
 }
