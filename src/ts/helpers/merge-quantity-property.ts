@@ -5,7 +5,8 @@ import { DessertCartItem } from "../ui/types/dessert-structure";
 export default async function updatedDessertsObj(): Promise<
   DessertCartItem[] | void
 > {
-  const productsInCart: DessertCartItem[] | undefined = [];
+  const productsInCart: DessertCartItem[] = [];
+
   const desserts = await products;
 
   if (!desserts) return;
