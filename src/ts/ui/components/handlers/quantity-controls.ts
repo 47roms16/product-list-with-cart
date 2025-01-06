@@ -1,7 +1,7 @@
 import { cartProducts } from "../cart/cart";
 import { updateCartUi } from "../cart/handlers/update-ui";
 
-export function decrementQuantity(target: HTMLButtonElement) {
+export function decrementQuantity(target: HTMLButtonElement): void {
   const btnId = Number(target.dataset.productId);
 
   cartProducts.forEach((cartProduct) => {
@@ -9,11 +9,12 @@ export function decrementQuantity(target: HTMLButtonElement) {
       cartProduct.quantity -= 1;
     }
   });
+
   updateProductQuantity(btnId);
   updateCartUi();
 }
 
-export function incrementQuantity(target: HTMLButtonElement) {
+export function incrementQuantity(target: HTMLButtonElement): void {
   const btnId = Number(target.dataset.productId);
 
   const matchingProduct = cartProducts.find(
@@ -22,11 +23,12 @@ export function incrementQuantity(target: HTMLButtonElement) {
 
   if (!matchingProduct) return;
   matchingProduct.quantity += 1;
+
   updateProductQuantity(btnId);
   updateCartUi();
 }
 
-export function updateProductQuantity(productId: number) {
+export function updateProductQuantity(productId: number): void {
   const elem = document.querySelector(
     `[data-product-id="${productId}"].item-quantity`
   ) as HTMLSpanElement;

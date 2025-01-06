@@ -2,9 +2,7 @@ import generateSVGElem from "../../utils/generate-svg-elem";
 
 import "./add-to-cart.css";
 
-export default function generateAddToCartBtn(
-  productId: number
-): HTMLButtonElement {
+export default function generateAddToCartBtn(productId: number): HTMLButtonElement {
   const addToCartBtn: HTMLButtonElement = document.createElement("button");
   addToCartBtn.className = "menu-btn__add-to-cart";
   addToCartBtn.dataset.productId = productId.toString();

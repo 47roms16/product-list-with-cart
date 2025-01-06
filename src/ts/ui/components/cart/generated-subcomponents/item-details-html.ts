@@ -45,6 +45,6 @@ function createSpan(className: string, text: string): HTMLSpanElement {
   return span;
 }
 
-function calculateTotal(quantity: number | undefined | null, price: number) {
+function calculateTotal(quantity: number | undefined | null, price: number): number {
   return (quantity ?? 0) * price;
 }
