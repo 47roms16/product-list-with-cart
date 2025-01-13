@@ -25,7 +25,7 @@ export default function generateImgElements(
 function createDesktopSrc(desktopImg: string): HTMLSourceElement {
   const sourceDesktop: HTMLSourceElement = document.createElement("source");
   sourceDesktop.media = "(min-width:1024px)";
-  sourceDesktop.srcset = `src/${desktopImg}`;
+  sourceDesktop.srcset = `${desktopImg}`;
 
   return sourceDesktop;
 }
@@ -33,7 +33,7 @@ function createDesktopSrc(desktopImg: string): HTMLSourceElement {
 function createTabletSrc(tabletImg: string): HTMLSourceElement {
   const sourceTablet: HTMLSourceElement = document.createElement("source");
   sourceTablet.media = "(min-width:640px)";
-  sourceTablet.srcset = `src/${tabletImg}`;
+  sourceTablet.srcset = `${tabletImg}`;
 
   return sourceTablet;
 }
@@ -41,7 +41,7 @@ function createTabletSrc(tabletImg: string): HTMLSourceElement {
 function createImgElem(imgSrc: string, itemName: string): HTMLImageElement {
   const imgElem = document.createElement("img");
   imgElem.className = "menu-item__img";
-  imgElem.src = `src/${imgSrc}`;
+  imgElem.src = `${imgSrc}`;
   imgElem.alt = `${itemName}`;
 
   return imgElem;

@@ -8,7 +8,7 @@ export default function generateRemoveBtn(): HTMLButtonElement {
 
   const removeIcon = generateSVGElem(
     "cart-remove__icon",
-    "src/assets/images/icons.svg#icon-remove-item"
+    "/assets/images/icons.svg#icon-remove-item"
   );
 
   removeBtn.appendChild(removeIcon);

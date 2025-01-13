@@ -8,7 +8,7 @@ export default function generateEmptyCartDiv(): HTMLDivElement {
 
   const emptyCartImage = generateSVGElem(
     "cart__empty-illustration",
-    "src/assets/images/icons.svg#illustration-empty-cart"
+    "/assets/images/icons.svg#illustration-empty-cart"
   );
   const emptyCartMsg = generateCartMessage();
   emptyCartDiv.appendChild(emptyCartImage);

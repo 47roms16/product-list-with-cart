@@ -14,7 +14,7 @@ export default function createQuantityControls(
   controlsDiv.appendChild(
     createButton(
       "item-quantity__decrement",
-      "src/assets/images/icons.svg#icon-decrement-quantity",
+      "/assets/images/icons.svg#icon-decrement-quantity",
       productId
     )
   );
@@ -22,7 +22,7 @@ export default function createQuantityControls(
   controlsDiv.appendChild(
     createButton(
       "item-quantity__increment",
-      "src/assets/images/icons.svg#icon-increment-quantity",
+      "/assets/images/icons.svg#icon-increment-quantity",
       productId
     )
   );
@@ -52,13 +52,8 @@ function createQuantityElem(quantity: number): HTMLSpanElement {
   return para;
 }
 
-export function updateCartButton(
-  cartBtn: HTMLButtonElement,
-  productId: number
-) {
-  const matchingProduct = cartProducts.find(
-    (product) => product.productId === productId
-  );
+export function updateCartButton(cartBtn: HTMLButtonElement, productId: number) {
+  const matchingProduct = cartProducts.find((product) => product.productId === productId);
 
   if (!matchingProduct) return;
 

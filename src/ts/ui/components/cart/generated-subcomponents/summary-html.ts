@@ -38,7 +38,7 @@ function generateCarbonNeutralMessage(): HTMLDivElement {
 
   const icon = generateSVGElem(
     "cart-summary__icon",
-    "src/assets/images/icons.svg#icon-carbon-neutral"
+    "/assets/images/icons.svg#icon-carbon-neutral"
   );
 
   const messagePara = document.createElement("p");
