@@ -4,7 +4,6 @@
   height: fit-content;
   padding: var(--size-7) var(--size-6);
   flex: 1;
-  background-color: var(--clr-rose-50);
   border-radius: var(--size-2);
 }
 

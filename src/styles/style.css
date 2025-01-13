@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Red Hat Text Bold";
-  src: url("../assets/fonts/static/RedHatText-Bold.woff2") format("woff2"),
-    url("../assets/fonts/static/RedHatText-Bold.woff") format("woff");
+  src: url("/assets/fonts/static/RedHatText-Bold.woff2") format("woff2"),
+    url("/assets/fonts/static/RedHatText-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -9,8 +9,8 @@
 
 @font-face {
   font-family: "Red Hat Text SemiBold";
-  src: url("../assets/fonts/static/RedHatText-SemiBold.woff2") format("woff2"),
-    url("../assets/fonts/static/RedHatText-SemiBold.woff") format("woff");
+  src: url("/assets/fonts/static/RedHatText-SemiBold.woff2") format("woff2"),
+    url("/assets/fonts/static/RedHatText-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -18,8 +18,8 @@
 
 @font-face {
   font-family: "Red Hat Text";
-  src: url("../assets/fonts/static/RedHatText-Regular.woff2") format("woff2"),
-    url("../assets/fonts/static/RedHatText-Regular.woff") format("woff");
+  src: url("/assets/fonts/static/RedHatText-Regular.woff2") format("woff2"),
+    url("/assets/fonts/static/RedHatText-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -97,7 +97,7 @@
 /* || GENERAL || */
 
 html {
-  background-color: var(--clr-rose-100);
+  background-color: var(--clr-rose-50);
 }
 
 h1 {
