@@ -7,6 +7,7 @@ import addToCart from "../helpers/add-to-cart";
 import removeItem from "../helpers/remove-item";
 import updateImgIndicator from "../helpers/update-indicator";
 import updateIndicatorUi from "../helpers/update-indicator";
+import updateOrderTotal from "../helpers/update-order-total";
 import updateCartUi from "./update-ui";
 
 export function handleAddToCartClick(productId: number): void {
@@ -15,6 +16,7 @@ export function handleAddToCartClick(productId: number): void {
   updateIndicatorUi(productId);
   replaceWithQuantityControls(productId);
   updateQuantityCount(productId);
+  updateOrderTotal();
 }
 
 export function handleDecrementClick(productId: number): void {
@@ -22,14 +24,17 @@ export function handleDecrementClick(productId: number): void {
   updateImgIndicator(productId);
   updateQuantityCount(productId);
   updateCartArray(productId);
+  updateOrderTotal();
 }
 
 export function handleIncrementClick(productId: number): void {
   incrementQuantity(productId);
   updateQuantityCount(productId);
   updateCartUi();
+  updateOrderTotal();
 }
 
 export function handleRemoveClick(productId: number): void {
   removeItem(productId);
+  updateOrderTotal();
 }

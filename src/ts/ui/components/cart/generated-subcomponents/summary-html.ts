@@ -1,10 +1,10 @@
 import generateSVGElem from "../../utils/generate-svg-elem";
 
-export default function generateSummaryHTML(): HTMLElement {
+export default function generateSummaryHTML(totalPrice: number): HTMLElement {
   const summarySection = document.createElement("section");
   summarySection.className = "cart-summary__wrap";
 
-  const totalDetails = generateTotalDetails();
+  const totalDetails = generateTotalDetails(totalPrice);
   const carbonNeutralMessage = generateCarbonNeutralMessage();
 
   summarySection.append(totalDetails, carbonNeutralMessage);
@@ -12,24 +12,25 @@ export default function generateSummaryHTML(): HTMLElement {
   return summarySection;
 }
 
-function generateTotalDetails(): HTMLDivElement {
+function generateTotalDetails(totalPrice: number): HTMLDivElement {
   const summaryTotalWrap = document.createElement("div");
   summaryTotalWrap.className = "cart-summary__total";
   summaryTotalWrap.textContent = "Order Total ";
 
-  const totalPrice = createPriceElem();
-  summaryTotalWrap.appendChild(totalPrice);
+  const totalPriceElem = createPriceElem(totalPrice);
+  summaryTotalWrap.appendChild(totalPriceElem);
 
   return summaryTotalWrap;
 }
 
-function createPriceElem(): HTMLSpanElement {
-  const totalPrice = document.createElement("span");
+function createPriceElem(totalPrice: number): HTMLSpanElement {
+  const totalPriceElem = document.createElement("span");
 
-  totalPrice.className = "cart-summary__price";
-  totalPrice.textContent = "$46.50";
+  totalPriceElem.className = "cart-summary__price";
+  const formattedPrice = totalPrice.toFixed(2);
+  totalPriceElem.textContent = `$${formattedPrice}`;
 
-  return totalPrice;
+  return totalPriceElem;
 }
 
 function generateCarbonNeutralMessage(): HTMLDivElement {
