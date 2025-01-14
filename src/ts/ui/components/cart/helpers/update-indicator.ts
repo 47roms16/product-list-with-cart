@@ -7,6 +7,5 @@ export default function updateImgIndicator(productId: number): void {
 
   const matchingProduct = findMatchingId(productId);
 
-  if (!matchingProduct) return;
-  pictureElem?.classList.toggle("product-added", matchingProduct.quantity > 0);
+  pictureElem.classList.toggle("product-added", !!matchingProduct);
 }

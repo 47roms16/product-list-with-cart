@@ -5,14 +5,13 @@ import { cartProducts, updateCartArray } from "../cart";
 import addToCart from "../helpers/add-to-cart";
 import removeItem from "../helpers/remove-item";
 import updateImgIndicator from "../helpers/update-indicator";
-import updateIndicatorUi from "../helpers/update-indicator";
 import updateOrderTotal from "../helpers/update-order-total";
 import updateCartUi from "./update-ui";
 
 export function handleAddToCartClick(productId: number): void {
   addToCart(cartProducts, productId);
   updateCartUi();
-  updateIndicatorUi(productId);
+  updateImgIndicator(productId);
   replaceWithQuantityControls(productId);
   updateQuantityCount(productId);
   updateOrderTotal();
@@ -20,7 +19,6 @@ export function handleAddToCartClick(productId: number): void {
 
 export function handleDecrementClick(productId: number): void {
   decrementQuantity(productId);
-  updateImgIndicator(productId);
   updateQuantityCount(productId);
   updateCartArray(productId);
   updateOrderTotal();

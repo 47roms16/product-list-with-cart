@@ -4,6 +4,7 @@ import updateCartUi from "./handlers/update-ui";
 import { restoreAddToCartBtn } from "../products/helpers/update-button";
 
 import findMatchingId from "../../../utils/find-matching-id";
+import updateImgIndicator from "./helpers/update-indicator";
 
 export let cartProducts: cartItem[] = [];
 
@@ -16,4 +17,5 @@ export function updateCartArray(productId: number): void {
 
   updateCartUi();
   restoreAddToCartBtn(productId);
+  updateImgIndicator(productId);
 }
