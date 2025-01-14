@@ -1,4 +1,3 @@
-import { cartProducts } from "../../cart/cart";
 import { cartItem } from "../../cart/types/cart-item";
 import generateSVGElem from "../../utils/generate-svg-elem";
 
