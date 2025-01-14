@@ -1,12 +1,13 @@
 import { cartProducts } from "../../cart/cart";
+import { cartItem } from "../../cart/types/cart-item";
 import generateSVGElem from "../../utils/generate-svg-elem";
 
 import "./quantity-controls.css";
 
-export default function createQuantityControls(
-  productId: number,
-  quantity: number
-): HTMLDivElement {
+export default function createQuantityControls({
+  productId,
+  quantity,
+}: cartItem): HTMLDivElement {
   const controlsDiv: HTMLDivElement = document.createElement("div");
 
   controlsDiv.className = "item-quantity__controls";
@@ -18,7 +19,7 @@ export default function createQuantityControls(
       productId
     )
   );
-  controlsDiv.appendChild(createQuantityElem(quantity));
+  controlsDiv.appendChild(createQuantityElem(productId, quantity));
   controlsDiv.appendChild(
     createButton(
       "item-quantity__increment",
@@ -44,21 +45,11 @@ function createButton(
   return button;
 }
 
-function createQuantityElem(quantity: number): HTMLSpanElement {
+function createQuantityElem(productId: number, quantity: number): HTMLSpanElement {
   const para = document.createElement("p");
   para.className = "item-quantity";
+  para.dataset.productId = productId.toString();
   para.textContent = quantity.toString();
 
   return para;
-}
-
-export function updateCartButton(cartBtn: HTMLButtonElement, productId: number) {
-  const matchingProduct = cartProducts.find((product) => product.productId === productId);
-
-  if (!matchingProduct) return;
-
-  console.log(matchingProduct);
-  const newBtn = createQuantityControls(productId, matchingProduct.quantity);
-
-  cartBtn.replaceWith(newBtn);
 }

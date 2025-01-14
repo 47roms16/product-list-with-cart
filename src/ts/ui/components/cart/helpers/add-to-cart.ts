@@ -1,5 +1,5 @@
-import { cartProducts } from "../cart";
+import { cartItem } from "../types/cart-item";
 
-export default function addToCart(productId: number) {
-  cartProducts.push({ productId, quantity: 1 });
+export default function addToCart(cart: cartItem[], productId: number): void {
+  cart.push({ productId, quantity: 1 });
 }

@@ -1,42 +1,18 @@
-import { cartProducts } from "../cart/cart";
-import { updateCartUi } from "../cart/handlers/update-ui";
+import findMatchingId from "../../../utils/find-matching-id";
 
-export function decrementQuantity(target: HTMLButtonElement): void {
-  const btnId = Number(target.dataset.productId);
+export function decrementQuantity(btnId: number): void {
+  const matchingProduct = findMatchingId(btnId);
 
-  cartProducts.forEach((cartProduct) => {
-    if (cartProduct.productId === btnId && cartProduct.quantity > 0) {
-      cartProduct.quantity -= 1;
-    }
-  });
+  if (!matchingProduct) return;
 
-  updateProductQuantity(btnId);
-  updateCartUi();
+  if (matchingProduct.quantity > 0) {
+    matchingProduct.quantity -= 1;
+  }
 }
 
-export function incrementQuantity(target: HTMLButtonElement): void {
-  const btnId = Number(target.dataset.productId);
-
-  const matchingProduct = cartProducts.find(
-    (cartProduct) => cartProduct.productId === btnId
-  );
+export function incrementQuantity(btnId: number): void {
+  const matchingProduct = findMatchingId(btnId);
 
   if (!matchingProduct) return;
   matchingProduct.quantity += 1;
-
-  updateProductQuantity(btnId);
-  updateCartUi();
-}
-
-export function updateProductQuantity(productId: number): void {
-  const elem = document.querySelector(
-    `[data-product-id="${productId}"].item-quantity`
-  ) as HTMLSpanElement;
-
-  const matchingProduct = cartProducts.find(
-    (cartProduct) => cartProduct.productId === productId
-  );
-  if (!matchingProduct) return;
-
-  elem.textContent = matchingProduct.quantity.toString();
 }

@@ -1,9 +1,8 @@
-import { updateCartButton } from "../products/generated-subcomponents/quantity-controls-html";
-
-import updateIndicatorUI from "../cart/helpers/update-indicator";
-import handleAddToCartClick from "../cart/handlers";
-import { decrementQuantity, incrementQuantity } from "./quantity-controls";
-import { cartProducts } from "../cart/cart";
+import {
+  handleAddToCartClick,
+  handleDecrementClick,
+  handleIncrementClick,
+} from "../cart/handlers";
 
 export default function setUpAddToCartBtns(container: HTMLUListElement): void {
   // Event Delegation: Instead of adding individual event listeners to each button,
@@ -14,13 +13,11 @@ export default function setUpAddToCartBtns(container: HTMLUListElement): void {
     const target = event.target as HTMLButtonElement;
 
     // * Add To Cart button
-    const addToCartBtn = target.closest(
-      ".menu-btn__add-to-cart"
-    ) as HTMLButtonElement;
+
+    const addToCartBtn = target.closest(".menu-btn__add-to-cart") as HTMLButtonElement;
 
     if (addToCartBtn) {
-      const productId: string | undefined = addToCartBtn.dataset
-        .productId as string;
+      const productId: string | undefined = addToCartBtn.dataset.productId as string;
 
       if (!productId) {
         console.error("Product ID is missing.");
@@ -30,26 +27,20 @@ export default function setUpAddToCartBtns(container: HTMLUListElement): void {
       const productIdNum = parseInt(productId);
 
       handleAddToCartClick(productIdNum);
-      updateCartButton(addToCartBtn, productIdNum);
     }
 
     // * Quantity controls`
-    const decrementBtn = target.closest(
-      ".item-quantity__decrement"
-    ) as HTMLButtonElement;
-    const incrementBtn = target.closest(
-      ".item-quantity__increment"
-    ) as HTMLButtonElement;
+
+    const decrementBtn = target.closest(".item-quantity__decrement") as HTMLButtonElement;
+    const incrementBtn = target.closest(".item-quantity__increment") as HTMLButtonElement;
 
     if (decrementBtn) {
       const productId = parseInt(decrementBtn.dataset.productId as string);
-      decrementQuantity(decrementBtn);
-      // updateIndicatorUI(productId);
+      handleDecrementClick(productId);
     }
     if (incrementBtn) {
       const productId = parseInt(incrementBtn.dataset.productId as string);
-      incrementQuantity(incrementBtn);
-      // updateIndicatorUI(productId);
+      handleIncrementClick(productId);
     }
   });
 }
