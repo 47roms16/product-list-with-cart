@@ -1,4 +1,3 @@
-import { products } from "../../../../api/products";
 import { decrementQuantity, incrementQuantity } from "../../handlers/quantity-controls";
 import { replaceWithQuantityControls } from "../../products/helpers/update-button";
 import updateQuantityCount from "../../products/helpers/update-quantity-count";
