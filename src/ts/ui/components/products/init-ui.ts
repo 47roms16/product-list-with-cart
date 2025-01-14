@@ -8,8 +8,10 @@ import "./grid-items.css";
 
 export default async function initUi(): Promise<void> {
   try {
+    const mainSection = document.getElementById("main") as HTMLElement;
     const menuSection = document.querySelector(".menu__wrap") as HTMLElement;
     const menuWrap = document.createElement("ul");
+
     menuWrap.className = "menu";
 
     menuSection.appendChild(menuWrap);
@@ -25,7 +27,7 @@ export default async function initUi(): Promise<void> {
 
     menuItems.forEach((item) => menuWrap.appendChild(item));
 
-    setUpAddToCartBtns(menuWrap);
+    setUpAddToCartBtns(mainSection);
     updateCartUi();
   } catch (err) {
     console.error(err);

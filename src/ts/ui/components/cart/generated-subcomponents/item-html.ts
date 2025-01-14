@@ -8,8 +8,9 @@ import "./item.css";
 export function generateItem(cartProduct: Dessert): HTMLLIElement {
   const cartItem = document.createElement("li");
   cartItem.className = "cart-item";
+
   const cartItemDetails = generateDetails(cartProduct);
-  const removeBtn = generateRemoveBtn();
+  const removeBtn = generateRemoveBtn(cartProduct.productId);
 
   cartItem.appendChild(cartItemDetails);
   cartItem.appendChild(removeBtn);

@@ -2,9 +2,7 @@ import { products } from "../api/products";
 import { cartProducts } from "../ui/components/cart/cart";
 import { DessertCartItem } from "../ui/types/dessert-structure";
 
-export default async function updatedDessertsObj(): Promise<
-  DessertCartItem[] | void
-> {
+export default async function updatedDessertsObj(): Promise<DessertCartItem[] | void> {
   const productsInCart: DessertCartItem[] = [];
 
   const desserts = await products;

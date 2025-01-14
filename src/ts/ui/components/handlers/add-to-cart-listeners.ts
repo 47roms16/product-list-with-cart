@@ -2,9 +2,10 @@ import {
   handleAddToCartClick,
   handleDecrementClick,
   handleIncrementClick,
+  handleRemoveClick,
 } from "../cart/handlers";
 
-export default function setUpAddToCartBtns(container: HTMLUListElement): void {
+export default function setUpAddToCartBtns(container: HTMLElement): void {
   // Event Delegation: Instead of adding individual event listeners to each button,
   // we attach a single event listener to the container. This improves performance
   // and dynamically handles buttons added to the DOM later.
@@ -21,6 +22,7 @@ export default function setUpAddToCartBtns(container: HTMLUListElement): void {
 
       if (!productId) {
         console.error("Product ID is missing.");
+
         return;
       }
 
@@ -36,11 +38,22 @@ export default function setUpAddToCartBtns(container: HTMLUListElement): void {
 
     if (decrementBtn) {
       const productId = parseInt(decrementBtn.dataset.productId as string);
+
       handleDecrementClick(productId);
     }
     if (incrementBtn) {
       const productId = parseInt(incrementBtn.dataset.productId as string);
+
       handleIncrementClick(productId);
+    }
+    // * Cart remove item button
+
+    const removeBtn = target.closest(".cart-btn__remove") as HTMLButtonElement;
+
+    if (removeBtn) {
+      const productId = parseInt(removeBtn.dataset.productId as string);
+
+      handleRemoveClick(productId);
     }
   });
 }
