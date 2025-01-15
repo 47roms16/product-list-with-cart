@@ -1,5 +1,5 @@
 import mergeQuantitiesWithDessert from "../../../../helpers/merge-quantity-property";
-import generateCartUlist from "../../create-ul-html";
+import generateCartUlist from "../../utils/create-ul-html";
 import createCtaButton from "../generated-subcomponents/btn-cta-html";
 import { generateItem } from "../generated-subcomponents/item-html";
 import generateSummaryHTML from "../generated-subcomponents/summary-html";
