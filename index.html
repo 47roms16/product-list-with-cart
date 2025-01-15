@@ -19,6 +19,68 @@
         <div class="cart__wrapper"></div>
       </aside>
     </main>
+    <div class="modal-wrap">
+      <dialog class="modal" open>
+        <svg class="success-icon">
+          <use href="/assets/images/icons.svg#icon-order-confirmed"></use>
+        </svg>
+        <h2 class="modal-title">Order Confirmed</h2>
+        <p class="modal-description">We hope you enjoy your food!</p>
+        <div class="order-summary">
+          <ul class="modal-items">
+            <li class="modal-item">
+              <div class="details-wrap">
+                <img
+                  class="item-image"
+                  src="/assets/images/image-tiramisu-thumbnail.jpg"
+                  alt=""
+                />
+                <div class="item-details">
+                  <h3 class="item-name">Classic Tiramisu</h3>
+                  <span class="modal-item-quantity">1x</span>
+                  <span class="item-price">@ $5.50</span>
+                </div>
+              </div>
+              <span class="item-total-price">$5.50</span>
+            </li>
+            <li class="modal-item">
+              <div class="details-wrap">
+                <img
+                  class="item-image"
+                  src="/assets/images/image-creme-brulee-thumbnail.jpg"
+                  alt=""
+                />
+                <div class="item-details">
+                  <h3 class="item-name">Vanilla Bean Creme Brulee</h3>
+                  <span class="modal-item-quantity">4x</span>
+                  <span class="item-price">@ $7.00</span>
+                </div>
+              </div>
+              <span class="item-total-price">$28.00</span>
+            </li>
+            <li class="modal-item">
+              <div class="details-wrap">
+                <img
+                  class="item-image"
+                  src="/assets/images/image-panna-cotta-thumbnail.jpg"
+                  alt=""
+                />
+                <div class="item-details">
+                  <h3 class="item-name">Vanilla Panna Cotta</h3>
+                  <span class="modal-item-quantity">2x</span>
+                  <span class="item-price">@ $6.50</span>
+                </div>
+              </div>
+              <span class="item-total-price">$13.00</span>
+            </li>
+          </ul>
+          <div class="modal-order-total">
+            Order Total <span class="modal-order-price">$46.50</span>
+          </div>
+        </div>
+        <button class="new-order-btn">Start New Order</button>
+      </dialog>
+    </div>
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. Coded by
