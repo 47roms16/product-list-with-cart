@@ -1,5 +1,4 @@
 import mergeQuantitiesWithDessert from "../../../../helpers/merge-quantity-property";
-import generateCartUlist from "../../utils/create-ul-html";
 import createCtaButton from "../generated-subcomponents/btn-cta-html";
 import { generateItem } from "../generated-subcomponents/item-html";
 import generateSummaryHTML from "../generated-subcomponents/summary-html";
@@ -11,7 +10,8 @@ export default async function populateCart(cartWrapper: HTMLDivElement): Promise
 
   let total = 0;
 
-  const cartUlist = generateCartUlist();
+  const cartUlist = document.createElement("ul");
+  cartUlist.className = "cart__items";
 
   productsInCart.forEach((product) => {
     const liElem = generateItem(product);
