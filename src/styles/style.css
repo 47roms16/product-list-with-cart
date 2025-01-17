@@ -100,15 +100,17 @@ html {
   background-color: var(--clr-rose-50);
 }
 
-body {
-  overflow-y: hidden;
-}
-
 h1 {
   font-family: "Red Hat Text Bold";
   font-size: var(--size-10);
   color: var(--text-clr-rose-900);
   margin: 0 0 var(--size-8) 0;
+}
+
+button:focus-visible,
+button:focus {
+  outline: 2px solid var(--btn-clr-rose-900);
+  outline-offset: 2px;
 }
 
 /* * MODAL * */
