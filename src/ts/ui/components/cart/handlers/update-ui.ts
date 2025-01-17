@@ -1,9 +1,12 @@
-import { cartProducts } from "../cart";
+import { cartProducts } from "../state/cart";
 
 import generateEmptyCartDiv from "../generated-subcomponents/empty-cart/empty-cart-html";
 
-import populateCart from "../helpers/populate-cart-ui";
+import renderItemList from "../../utils/render-ulist";
 import updateCartHeading from "../helpers/update-cart-heading";
+import { generateItem } from "../generated-subcomponents/item-html";
+import createCtaButton from "../../utils/generate-subcomponents/btn-cta-html";
+import generateCarbonNeutralMsg from "../generated-subcomponents/carbon-neutral-html";
 
 export default function updateCartUi(): void {
   const cartWrapper = document.querySelector(".cart__wrapper") as HTMLDivElement;
@@ -14,7 +17,13 @@ export default function updateCartUi(): void {
     const emptyCartDiv = generateEmptyCartDiv();
     cartWrapper?.appendChild(emptyCartDiv);
   } else {
-    populateCart(cartWrapper);
+    renderItemList(cartWrapper, "cart__items", generateItem);
+
+    const carbonNeutralMsg = generateCarbonNeutralMsg();
+    const ctaBtn = createCtaButton("cart-cta__btn", "Confirm Order");
+
+    cartWrapper.append(carbonNeutralMsg, ctaBtn);
   }
+
   updateCartHeading();
 }
