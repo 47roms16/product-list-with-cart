@@ -1,10 +1,10 @@
-import { cartItem } from "./types/cart-item";
+import { cartItem } from "../types/cart-item";
 
-import updateCartUi from "./handlers/update-ui";
-import { restoreAddToCartBtn } from "../products/helpers/update-button";
+import updateCartUi from "../handlers/update-ui";
+import { restoreAddToCartBtn } from "../../products/helpers/update-button";
 
-import findMatchingId from "../../../utils/find-matching-id";
-import updateImgIndicator from "./helpers/update-indicator";
+import findMatchingId from "../../../../utils/find-matching-id";
+import updateImgIndicator from "../helpers/update-indicator";
 
 export let cartProducts: cartItem[] = [];
 
