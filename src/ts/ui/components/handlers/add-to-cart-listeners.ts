@@ -4,6 +4,7 @@ import {
   handleIncrementClick,
   handleRemoveClick,
 } from "../cart/handlers";
+import showModalSuccess from "../modal/show-modal";
 
 export default function setUpAddToCartBtns(container: HTMLElement): void {
   // Event Delegation: Instead of adding individual event listeners to each button,
@@ -54,6 +55,14 @@ export default function setUpAddToCartBtns(container: HTMLElement): void {
       const productId = parseInt(removeBtn.dataset.productId as string);
 
       handleRemoveClick(productId);
+    }
+
+    // * CTA / Confirm order button
+
+    const ctaBtn = target.closest(".cart-cta__btn");
+
+    if (ctaBtn) {
+      showModalSuccess();
     }
   });
 }
