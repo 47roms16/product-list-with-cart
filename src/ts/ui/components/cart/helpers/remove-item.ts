@@ -1,6 +1,6 @@
 import findMatchingId from "../../../../utils/find-matching-id";
 import { restoreAddToCartBtn } from "../../products/helpers/update-button";
-import { cartProducts } from "../cart";
+import { cartProducts } from "../state/cart";
 import updateCartUi from "../handlers/update-ui";
 import updateImgIndicator from "./update-indicator";
 

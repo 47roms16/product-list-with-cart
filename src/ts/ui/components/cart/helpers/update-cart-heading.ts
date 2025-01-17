@@ -1,9 +1,7 @@
-import { cartProducts } from "../cart";
+import { cartProducts } from "../state/cart";
 
 export default function updateCartHeading() {
-  const cartHeading = document.querySelector(
-    ".cart__heading"
-  ) as HTMLHeadElement;
+  const cartHeading = document.querySelector(".cart__heading") as HTMLHeadElement;
 
   const formattedQuantity = `Your Cart (${updateCartQuantity().toString()})`;
   cartHeading.textContent = formattedQuantity;

@@ -1,7 +1,7 @@
 import { decrementQuantity, incrementQuantity } from "../../handlers/quantity-controls";
 import { replaceWithQuantityControls } from "../../products/helpers/update-button";
 import updateQuantityCount from "../../products/helpers/update-quantity-count";
-import { cartProducts, updateCartArray } from "../cart";
+import { cartProducts, updateCartArray } from "../state/cart";
 import addToCart from "../helpers/add-to-cart";
 import removeItem from "../helpers/remove-item";
 import updateImgIndicator from "../helpers/update-indicator";
@@ -35,3 +35,5 @@ export function handleRemoveClick(productId: number): void {
   removeItem(productId);
   updateOrderTotal();
 }
+
+export function handleConfirmClick(): void {}

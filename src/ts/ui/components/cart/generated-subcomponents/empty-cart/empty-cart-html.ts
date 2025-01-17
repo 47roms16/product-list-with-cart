@@ -1,4 +1,4 @@
-import generateSVGElem from "../../../utils/generate-svg-elem";
+import generateSVGElem from "../../../utils/generate-subcomponents/generate-svg-elem";
 
 import "./empty-cart.css";
 

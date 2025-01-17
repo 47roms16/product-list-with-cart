@@ -1,4 +1,4 @@
-import { cartProducts } from "../ui/components/cart/cart";
+import { cartProducts } from "../ui/components/cart/state/cart";
 import { cartItem } from "../ui/components/cart/types/cart-item";
 
 export default function findMatchingId(productId: number): cartItem | undefined {

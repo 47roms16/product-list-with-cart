@@ -1,5 +1,5 @@
 import { products } from "../api/products";
-import { cartProducts } from "../ui/components/cart/cart";
+import { cartProducts } from "../ui/components/cart/state/cart";
 import { DessertCartItem } from "../ui/types/dessert-structure";
 
 export default async function updatedDessertsObj(): Promise<DessertCartItem[] | void> {
