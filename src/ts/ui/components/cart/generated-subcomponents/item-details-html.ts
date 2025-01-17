@@ -1,4 +1,5 @@
-import { Dessert } from "../../../types/dessert-structure";
+import calculateEachItemTotal from "../../../../utils/calculate-each-total";
+import { Dessert, DessertCartItem } from "../../../types/dessert-structure";
 
 import "./item-details.css";
 
@@ -17,11 +18,10 @@ export default function generateDetails(cartItem: Dessert): HTMLDivElement {
   return detailsDiv;
 }
 
-function generatePricingDetails(cartItem: Dessert): HTMLDivElement {
+function generatePricingDetails({ quantity, price }: DessertCartItem): HTMLDivElement {
   const itemSummaryDiv = document.createElement("div");
 
-  const { quantity, price } = cartItem;
-  const total = calculateTotal(quantity, price);
+  const total = calculateEachItemTotal(quantity, price);
 
   const formattedQuantity = `${quantity.toString()}x`;
   const formattedPrice = `@ $${price.toFixed(2)}`;
@@ -43,8 +43,4 @@ function createSpan(className: string, text: string): HTMLSpanElement {
   span.textContent = text;
 
   return span;
-}
-
-function calculateTotal(quantity: number | undefined | null, price: number): number {
-  return (quantity ?? 0) * price;
 }
