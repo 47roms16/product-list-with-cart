@@ -1,3 +1,7 @@
+.total-items-wrap {
+  order: -1;
+}
+
 .cart__items {
   margin-bottom: var(--size-5);
 }

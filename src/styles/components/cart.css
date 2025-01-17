@@ -24,7 +24,7 @@
 
 /* Cart Summary */
 
-.cart-summary__total {
+.summary__total {
   display: flex;
   margin-bottom: var(--size-10);
   justify-content: space-between;
@@ -34,33 +34,10 @@
   color: var(--text-clr-rose-900);
 }
 
-.cart-summary__price {
+.summary__price {
   font-family: var(--font-primary-bold);
   font-size: var(--size-6);
   color: var(--text-clr-rose-900);
-}
-
-.cart-summary__details {
-  display: flex;
-  margin-bottom: var(--size-10);
-  justify-content: center;
-  align-items: center;
-}
-
-.cart-summary__icon {
-  width: 21px;
-  margin-right: var(--size-2);
-  aspect-ratio: 1;
-}
-
-.cart-summary__message {
-  font-family: var(--font-primary);
-  font-size: var(--text-sm);
-  color: var(--text-clr-rose-900);
-}
-
-.cart-summary__carbon-neutral {
-  font-family: var(--font-primary-semibold);
 }
 
 /* || Breakpoints || */
