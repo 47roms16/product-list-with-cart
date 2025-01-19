@@ -1,21 +1,20 @@
-import { cartItem } from "../types/cart-item";
-
-import updateCartUi from "../handlers/update-ui";
 import { restoreAddToCartBtn } from "../../products/helpers/update-button";
 
 import findMatchingId from "../../../../utils/find-matching-id";
 import updateImgIndicator from "../helpers/update-indicator";
+import { DessertCartItem } from "../../../types/dessert-structure";
 
-export let cartProducts: cartItem[] = [];
+export let cartProducts: DessertCartItem[] = [];
 
-export function updateCartArray(productId: number): void {
+export function removeItemFromArray(productId: number): void {
   const matchingProduct = findMatchingId(productId);
 
   if (matchingProduct?.quantity === 0) {
     cartProducts = cartProducts.filter((product) => product.productId !== productId);
-  }
 
-  updateCartUi();
-  restoreAddToCartBtn(productId);
-  updateImgIndicator(productId);
+    // UI changes
+    // toggle image outline indicator and restore  add to cart button if quantity is 0
+    restoreAddToCartBtn(productId);
+  }
+  updateImgIndicator(productId, matchingProduct);
 }

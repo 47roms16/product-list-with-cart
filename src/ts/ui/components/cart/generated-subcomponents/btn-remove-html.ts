@@ -2,10 +2,9 @@ import generateSVGElem from "../../utils/generate-subcomponents/generate-svg-ele
 
 import "./btn-remove.css";
 
-export default function generateRemoveBtn(productId: number): HTMLButtonElement {
+export default function generateRemoveBtn(): HTMLButtonElement {
   const removeBtn = document.createElement("button");
   removeBtn.className = "cart-btn__remove";
-  removeBtn.dataset.productId = productId.toString();
 
   const removeIcon = generateSVGElem(
     "cart-remove__icon",

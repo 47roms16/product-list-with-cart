@@ -4,7 +4,7 @@ import { cartProducts } from "../state/cart";
 import updateCartUi from "../handlers/update-ui";
 import updateImgIndicator from "./update-indicator";
 
-export default function removeItem(productId: number): void {
+export default function removeCartItem(productId: number): void {
   const itemToRemove = findMatchingId(productId);
   const index = cartProducts.findIndex(
     (product) => product.productId === itemToRemove?.productId

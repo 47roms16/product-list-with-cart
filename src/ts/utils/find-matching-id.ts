@@ -1,6 +1,6 @@
 import { cartProducts } from "../ui/components/cart/state/cart";
-import { cartItem } from "../ui/components/cart/types/cart-item";
+import { DessertCartItem } from "../ui/types/dessert-structure";
 
-export default function findMatchingId(productId: number): cartItem | undefined {
+export default function findMatchingId(productId: number): DessertCartItem | undefined {
   return cartProducts.find((product) => product.productId === productId);
 }

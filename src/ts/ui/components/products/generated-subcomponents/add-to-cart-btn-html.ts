@@ -2,10 +2,9 @@ import generateSVGElem from "../../utils/generate-subcomponents/generate-svg-ele
 
 import "./add-to-cart.css";
 
-export default function generateAddToCartBtn(productId: number): HTMLButtonElement {
+export default function generateAddToCartBtn(): HTMLButtonElement {
   const addToCartBtn = document.createElement("button");
   addToCartBtn.className = "menu-btn__add-to-cart";
-  addToCartBtn.dataset.productId = productId.toString();
   addToCartBtn.setAttribute("aria-label", "Add item to cart");
 
   const cartIcon = generateSVGElem(

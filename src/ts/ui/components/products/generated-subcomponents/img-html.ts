@@ -4,12 +4,10 @@ import "./img.css";
 
 export default function generateImgElements(
   imgSrc: Image,
-  itemName: string,
-  productId: number
+  itemName: string
 ): HTMLPictureElement {
   const pictureElem: HTMLPictureElement = document.createElement("picture");
   pictureElem.className = "menu-item__picture";
-  pictureElem.dataset.productId = productId.toString();
 
   const desktopSrc = createDesktopSrc(imgSrc.desktop);
   const tabletSrc = createTabletSrc(imgSrc.tablet);

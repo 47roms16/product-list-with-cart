@@ -7,6 +7,5 @@ export default async function updateOrderTotal(): Promise<number | void> {
     total += product.price;
   });
 
-  console.log(cartProducts);
   return total;
 }

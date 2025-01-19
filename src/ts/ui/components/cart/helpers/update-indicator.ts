@@ -1,11 +1,13 @@
-import findMatchingId from "../../../../utils/find-matching-id";
+import { DessertCartItem } from "../../../types/dessert-structure";
 
-export default function updateImgIndicator(productId: number): void {
-  const pictureElem = document.querySelector(
-    `[data-product-id="${productId}"].menu-item__picture`
-  ) as HTMLPictureElement;
+export default function updateImgIndicator(
+  productId: number,
+  matchingProduct?: DessertCartItem
+): void {
+  const parentLi = document.querySelector(
+    `.menu-item[data-product-id="${productId}"]`
+  ) as HTMLLIElement;
 
-  const matchingProduct = findMatchingId(productId);
-
-  pictureElem.classList.toggle("product-added", !!matchingProduct);
+  const pictureElem = parentLi.querySelector(".menu-item__picture") as HTMLLIElement;
+  pictureElem?.classList.toggle("product-added", !!matchingProduct);
 }

@@ -1,32 +1,44 @@
 import { decrementQuantity, incrementQuantity } from "../../handlers/quantity-controls";
-import { replaceWithQuantityControls } from "../../products/helpers/update-button";
+import { replaceAddToCartBtn } from "../../products/helpers/update-button";
 import updateQuantityCount from "../../products/helpers/update-quantity-count";
-import { cartProducts, updateCartArray } from "../state/cart";
+import { removeItemFromArray } from "../state/cart";
 import addToCart from "../helpers/add-to-cart";
 import removeItem from "../helpers/remove-item";
 import updateImgIndicator from "../helpers/update-indicator";
 import updateOrderTotal from "../helpers/update-order-total";
 import updateCartUi from "./update-ui";
+import initUi from "../../products/init-ui";
+import { Dessert } from "../../../types/dessert-structure";
 
-export function handleAddToCartClick(productId: number): void {
-  addToCart(cartProducts, productId);
+export async function handleAddToCartClick(
+  desserts: Dessert[],
+  productId: number,
+  addToCartBtn: HTMLButtonElement
+): Promise<void> {
+  addToCart(desserts, productId);
+
+  // UI changes
   updateCartUi();
-  updateImgIndicator(productId);
-  replaceWithQuantityControls(productId);
-  updateQuantityCount(productId);
+  removeItemFromArray(productId);
+  replaceAddToCartBtn(addToCartBtn, productId);
   updateOrderTotal();
 }
 
-export function handleDecrementClick(productId: number): void {
+export function handleDecrementClick(parentLi: HTMLLIElement, productId: number): void {
   decrementQuantity(productId);
-  updateQuantityCount(productId);
-  updateCartArray(productId);
+  removeItemFromArray(productId);
+
+  // UI changes
+  updateQuantityCount(parentLi, productId);
   updateOrderTotal();
+  updateCartUi();
 }
 
-export function handleIncrementClick(productId: number): void {
+export function handleIncrementClick(parentLi: HTMLLIElement, productId: number): void {
   incrementQuantity(productId);
-  updateQuantityCount(productId);
+
+  //  UI changes
+  updateQuantityCount(parentLi, productId);
   updateCartUi();
   updateOrderTotal();
 }
@@ -34,6 +46,13 @@ export function handleIncrementClick(productId: number): void {
 export function handleRemoveClick(productId: number): void {
   removeItem(productId);
   updateOrderTotal();
+  removeItemFromArray(productId);
+  updateImgIndicator(productId);
 }
 
 export function handleConfirmClick(): void {}
+
+export function handleResetClick(): void {
+  // resetUi();
+  initUi();
+}

@@ -1,12 +1,8 @@
-import { cartItem } from "../../cart/types/cart-item";
 import generateSVGElem from "../../utils/generate-subcomponents/generate-svg-elem";
 
 import "./quantity-controls.css";
 
-export default function createQuantityControls({
-  productId,
-  quantity,
-}: cartItem): HTMLDivElement {
+export default function createQuantityControls(quantity: number): HTMLDivElement {
   const controlsDiv: HTMLDivElement = document.createElement("div");
 
   controlsDiv.className = "item-quantity__controls";
@@ -14,40 +10,32 @@ export default function createQuantityControls({
   controlsDiv.appendChild(
     createButton(
       "item-quantity__decrement",
-      "/assets/images/icons.svg#icon-decrement-quantity",
-      productId
+      "/assets/images/icons.svg#icon-decrement-quantity"
     )
   );
-  controlsDiv.appendChild(createQuantityElem(productId, quantity));
+  controlsDiv.appendChild(createQuantityElem(quantity));
   controlsDiv.appendChild(
     createButton(
       "item-quantity__increment",
-      "/assets/images/icons.svg#icon-increment-quantity",
-      productId
+      "/assets/images/icons.svg#icon-increment-quantity"
     )
   );
 
   return controlsDiv;
 }
 
-function createButton(
-  className: string,
-  src: string,
-  product: number
-): HTMLButtonElement {
+function createButton(className: string, src: string): HTMLButtonElement {
   const button = document.createElement("button");
   button.className = className;
-  button.dataset.productId = product.toString();
 
   button.appendChild(generateSVGElem("item-quantity__icon", src));
 
   return button;
 }
 
-function createQuantityElem(productId: number, quantity: number): HTMLSpanElement {
+function createQuantityElem(quantity: number): HTMLSpanElement {
   const para = document.createElement("p");
   para.className = "item-quantity";
-  para.dataset.productId = productId.toString();
   para.textContent = quantity.toString();
 
   return para;
