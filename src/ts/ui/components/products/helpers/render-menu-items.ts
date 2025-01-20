@@ -4,7 +4,6 @@ import generateMenuItem from "../generate-dessert-html";
 
 export default async function renderMenuUi(desserts: Dessert[]): Promise<void> {
   const menuSection = document.querySelector(".menu__wrap") as HTMLElement;
-  menuSection.textContent = "";
 
   const { uListElem } = populateUlist(desserts, generateMenuItem);
   uListElem.className = "menu";
