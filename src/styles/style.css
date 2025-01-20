@@ -246,6 +246,17 @@ button:focus {
   background-color: var(--btn-clr-rose-500);
 }
 
+/* Attribution */
+.attribution {
+  text-align: center;
+  font-family: var(--font-primary-semibold);
+}
+
+.attribution a {
+  font-family: var(--font-primary-bold);
+  color: var(--text-clr-primary);
+}
+
 /* || Breakpoints || */
 
 /* @media (max-width: 1536px) {
