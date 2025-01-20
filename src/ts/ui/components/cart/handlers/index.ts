@@ -7,8 +7,9 @@ import removeItem from "../helpers/remove-item";
 import updateImgIndicator from "../helpers/update-indicator";
 import updateOrderTotal from "../helpers/update-order-total";
 import updateCartUi from "./update-ui";
-import initUi from "../../products/init-ui";
 import { Dessert } from "../../../types/dessert-structure";
+import showModalSuccess from "../../modal/show-modal";
+import resetUi from "../../modal/reset-ui";
 
 export async function handleAddToCartClick(
   desserts: Dessert[],
@@ -50,9 +51,10 @@ export function handleRemoveClick(productId: number): void {
   updateImgIndicator(productId);
 }
 
-export function handleConfirmClick(): void {}
+export function handleConfirmClick(): void {
+  showModalSuccess();
+}
 
-export function handleResetClick(): void {
-  // resetUi();
-  initUi();
+export function handleResetClick(resetBtn: HTMLButtonElement): void {
+  resetUi(resetBtn);
 }

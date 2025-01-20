@@ -2,12 +2,12 @@ import { Dessert } from "../../types/dessert-structure";
 
 import {
   handleAddToCartClick,
+  handleConfirmClick,
   handleDecrementClick,
   handleIncrementClick,
   handleRemoveClick,
   handleResetClick,
 } from "../cart/handlers";
-import showModalSuccess from "../modal/show-modal";
 
 export default function setUpAddToCartBtns(desserts: Dessert[]): void {
   /*
@@ -20,44 +20,49 @@ export default function setUpAddToCartBtns(desserts: Dessert[]): void {
 
     const parentLi = target.closest("li[data-product-id]") as HTMLLIElement;
 
-    if (!parentLi) return;
-
-    const productId = Number(parentLi.dataset.productId);
-
-    if (!productId) {
-      // If no product ID is found on the parent <li>, it indicates a structural or data error.
-      console.error("Product ID is missing.");
-      return;
-    }
-
     // * The button elements exists, but it doesn't store the product ID directly.
     // * Instead, we rely on the 'data-product-id' attribute from the closest parent <li> element.
     // * This ensures that the button's behavior is tied to its corresponding product
 
-    // Add To Cart button
-    const addToCartBtn = target.closest(".menu-btn__add-to-cart") as HTMLButtonElement;
+    if (parentLi) {
+      const productId = Number(parentLi.dataset.productId);
 
-    if (addToCartBtn) {
-      handleAddToCartClick(desserts, productId, addToCartBtn);
-    }
+      if (!productId) {
+        // If no product ID is found on the parent <li>, it indicates a structural or data error.
+        console.error("Product ID is missing.");
+      }
 
-    // * Quantity controls`
+      // Add To Cart button
+      const addToCartBtn = target.closest(".menu-btn__add-to-cart") as HTMLButtonElement;
 
-    const decrementBtn = target.closest(".item-quantity__decrement") as HTMLButtonElement;
-    const incrementBtn = target.closest(".item-quantity__increment") as HTMLButtonElement;
+      if (addToCartBtn) {
+        handleAddToCartClick(desserts, productId, addToCartBtn);
+      }
 
-    if (decrementBtn) {
-      handleDecrementClick(parentLi, productId);
-    }
-    if (incrementBtn) {
-      handleIncrementClick(parentLi, productId);
-    }
-    // * Cart remove item button
+      // * Quantity controls`
 
-    const removeBtn = target.closest(".cart-btn__remove") as HTMLButtonElement;
+      const decrementBtn = target.closest(
+        ".item-quantity__decrement"
+      ) as HTMLButtonElement;
+      const incrementBtn = target.closest(
+        ".item-quantity__increment"
+      ) as HTMLButtonElement;
 
-    if (removeBtn) {
-      handleRemoveClick(productId);
+      if (decrementBtn) {
+        handleDecrementClick(parentLi, productId);
+      }
+      if (incrementBtn) {
+        handleIncrementClick(parentLi, productId);
+      }
+      // * Cart remove item button
+
+      const removeBtn = target.closest(".cart-btn__remove") as HTMLButtonElement;
+
+      if (removeBtn) {
+        handleRemoveClick(productId);
+      }
+
+      return;
     }
 
     // * CTA / Confirm order button
@@ -65,13 +70,15 @@ export default function setUpAddToCartBtns(desserts: Dessert[]): void {
     const ctaBtn = target.closest(".cart-cta__btn");
 
     if (ctaBtn) {
-      showModalSuccess();
+      handleConfirmClick();
     }
 
-    const newOrderBtn = target.closest(".new-order-btn");
+    // * Start New Order Button
+
+    const newOrderBtn = target.closest(".new-order-btn") as HTMLButtonElement;
 
     if (newOrderBtn) {
-      handleResetClick();
+      handleResetClick(newOrderBtn);
     }
   });
 }
